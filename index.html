@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de QR Code</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      width: 100%;
+      max-width: 380px;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #1d2671;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #1d2671;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #14205a;
+    }
+
+    #qrcode {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Gerador de QR Code</h1>
+    <p>Digite um texto ou link</p>
+
+    <input 
+      type="text" 
+      id="qrText" 
+      placeholder="Ex: https://meusite.com"
+    />
+
+    <button onclick="gerarQRCode()">Gerar QR Code</button>
+
+    <div id="qrcode"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+  <script>
+    function gerarQRCode() {
+      const texto = document.getElementById("qrText").value.trim();
+      const container = document.getElementById("qrcode");
+
+      container.innerHTML = "";
+
+      if (texto === "") {
+        alert("Digite um texto ou link");
+        return;
+      }
+
+      new QRCode(container, {
+        text: texto,
+        width: 200,
+        height: 200
+      });
+    }
+  </script>
+
+</body>
+</html>
