@@ -59,11 +59,15 @@
       background: #14205a;
     }
 
-    /* 🔹 Centraliza o QR Code */
+    /* ===== CENTRALIZAÇÃO DEFINITIVA DO QR CODE ===== */
     #qrcode {
       margin-top: 20px;
-      display: flex;
-      justify-content: center;
+    }
+
+    #qrcode canvas,
+    #qrcode img {
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -74,9 +78,9 @@
     <h1>Gerador de QR Code</h1>
     <p>Digite um texto ou link</p>
 
-    <input 
-      type="text" 
-      id="qrText" 
+    <input
+      type="text"
+      id="qrText"
       placeholder="Ex: https://meusite.com"
     />
 
